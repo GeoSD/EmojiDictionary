@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		661B25C0216FC24400A1C15B /* AddEditEmojiTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 661B25BF216FC24400A1C15B /* AddEditEmojiTableViewController.swift */; };
 		66C82D50216BC82B00FCDE0A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 66C82D4F216BC82B00FCDE0A /* AppDelegate.swift */; };
 		66C82D55216BC82B00FCDE0A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 66C82D53216BC82B00FCDE0A /* Main.storyboard */; };
 		66C82D57216BC83000FCDE0A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 66C82D56216BC83000FCDE0A /* Assets.xcassets */; };
@@ -17,6 +18,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		661B25BF216FC24400A1C15B /* AddEditEmojiTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditEmojiTableViewController.swift; sourceTree = "<group>"; };
 		66C82D4C216BC82B00FCDE0A /* EmojiDictionary.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmojiDictionary.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		66C82D4F216BC82B00FCDE0A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		66C82D54216BC82B00FCDE0A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -61,6 +63,7 @@
 				66C82D4F216BC82B00FCDE0A /* AppDelegate.swift */,
 				66C82D61216BC8D100FCDE0A /* Emoji.swift */,
 				66C82D63216BCA9900FCDE0A /* EmojiTableViewController.swift */,
+				661B25BF216FC24400A1C15B /* AddEditEmojiTableViewController.swift */,
 				66C82D65216BE06D00FCDE0A /* EmojiTableViewCell.swift */,
 				66C82D53216BC82B00FCDE0A /* Main.storyboard */,
 				66C82D56216BC83000FCDE0A /* Assets.xcassets */,
@@ -141,6 +144,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				661B25C0216FC24400A1C15B /* AddEditEmojiTableViewController.swift in Sources */,
 				66C82D62216BC8D100FCDE0A /* Emoji.swift in Sources */,
 				66C82D64216BCA9900FCDE0A /* EmojiTableViewController.swift in Sources */,
 				66C82D66216BE06D00FCDE0A /* EmojiTableViewCell.swift in Sources */,

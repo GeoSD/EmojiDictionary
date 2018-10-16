@@ -31,6 +31,13 @@ struct CategorizedEmojis {
 
 func loadCategorizedEmojis() -> [CategorizedEmojis] {
     let categorizedEmojis = [
+        CategorizedEmojis(category: "Unsorted",
+                          emojis: [
+                            Emoji(symbol: "",
+                                  name: "",
+                                  description: "",
+                                  usage: "")
+            ]),
         CategorizedEmojis(category: "Smileys & People",
                           emojis: [
                             Emoji(symbol: "😉",

@@ -86,19 +86,41 @@ class EmojiTableViewController: UITableViewController {
     }
     */
 
-    /*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "EditEmoji" {
+            
+            let indexPath = tableView.indexPathForSelectedRow!
+            let section = Int(indexPath.section)
+            let row = Int(indexPath.row)
+            let emoji = categorizedEmojis[indexPath.section].emojis[indexPath.row]
+            let navigationController = segue.destination as! UINavigationController
+            
+            let addEditEmojiTVC = navigationController.topViewController as! AddEditEmojiTableViewController
+            addEditEmojiTVC.navigationItem.title = "Edit emoji."
+            addEditEmojiTVC.addFlag = false
+            addEditEmojiTVC.choosedEmoji = (section, row, emoji)
+        }
     }
-    */
     
     @IBAction func unwindToEmojiTableViewController(_ unwindSegue: UIStoryboardSegue) {
-//        let sourceViewController = unwindSegue.source
-        // Use data from the view controller which initiated the unwind segue
+        guard unwindSegue.identifier == "UnwindToEmojiTableViewController" else { return }
+        
+        let sourceVC = unwindSegue.source as! AddEditEmojiTableViewController
+        
+        let section = sourceVC.choosedEmoji.0
+        let row = sourceVC.choosedEmoji.1
+        let emoji = sourceVC.choosedEmoji.2
+        
+        if sourceVC.addFlag == false {
+            categorizedEmojis[section].emojis[row] = emoji
+            sourceVC.addFlag = true
+        } else {
+            categorizedEmojis[section].emojis.append(emoji)
+        }
+        tableView.reloadData()
     }
     
     // MARK: - UITableViewDelegate
