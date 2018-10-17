@@ -85,7 +85,7 @@
             </objects>
             <point key="canvasLocation" x="326" y="143"/>
         </scene>
-        <!--Root View Controller-->
+        <!--Add New Emoji-->
         <scene sceneID="c7i-zd-N7P">
             <objects>
                 <tableViewController id="cMT-6O-Mvy" customClass="AddEditEmojiTableViewController" customModule="EmojiDictionary" customModuleProvider="target" sceneMemberID="viewController">
@@ -94,7 +94,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <sections>
-                            <tableViewSection headerTitle="Symbol" id="qQQ-uS-H5B">
+                            <tableViewSection headerTitle="Emoji" id="qQQ-uS-H5B">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="0uz-S4-80W">
                                         <rect key="frame" x="0.0" y="55.5" width="320" height="44"/>
@@ -216,7 +216,7 @@
                             <outlet property="delegate" destination="cMT-6O-Mvy" id="QAS-XO-yBh"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="VDd-Kn-6ai">
+                    <navigationItem key="navigationItem" title="Add New Emoji" id="VDd-Kn-6ai">
                         <barButtonItem key="leftBarButtonItem" style="done" systemItem="save" id="hkC-e7-UDk">
                             <connections>
                                 <segue destination="lqX-SH-syc" kind="unwind" identifier="UnwindToEmojiTableViewController" unwindAction="unwindToEmojiTableViewController:" id="Hew-gI-uH1"/>

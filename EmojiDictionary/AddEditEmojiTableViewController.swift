@@ -28,6 +28,7 @@ class AddEditEmojiTableViewController: UITableViewController {
     
     @IBAction func textEditingChanged(_ sender: UITextField) {
         updateSaveButtonState()
+        isThisEmoji(currentTextField: sender)
     }
     
     override func viewDidLoad() {
@@ -51,6 +52,22 @@ class AddEditEmojiTableViewController: UITableViewController {
         let usageText = usageTextField.text ?? ""
         
         saveButton.isEnabled = !symbolText.isEmpty && !nameText.isEmpty && !descriptionText.isEmpty && !usageText.isEmpty
+    }
+    
+    func isThisEmoji(currentTextField: UITextField) {
+        guard currentTextField == symbolTextField else { return }
+        guard var existingCharacter = symbolTextField.text else { return }
+        guard existingCharacter.count > 0 else { return }
+        
+        if existingCharacter.containsEmoji == false {
+            symbolTextField.text = ""
+            return
+        }
+        if existingCharacter.isSingleEmoji == false {
+            existingCharacter.removeLast()
+            symbolTextField.text = existingCharacter
+            return
+        }
     }
 
     // MARK: - Navigation

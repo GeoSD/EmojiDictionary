@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Emoji {
+class Emoji: Codable {
     var symbol: String
     var name: String
     var description: String
@@ -22,7 +22,7 @@ class Emoji {
     }
 }
 
-struct CategorizedEmojis {
+struct CategorizedEmojis: Codable {
     var category: String
     var emojis: [Emoji]
     
@@ -85,4 +85,30 @@ func loadCategorizedEmojis() -> [CategorizedEmojis] {
             ])
     ]
     return categorizedEmojis
+}
+
+func loadData() -> [CategorizedEmojis]? {
+    let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let archiveURL = documentDirectory.appendingPathComponent("emojis").appendingPathExtension("json")
+    
+    let jsonDecoder = JSONDecoder()
+    
+    if let data = try? Data(contentsOf: archiveURL) {
+        let decodedData = try? jsonDecoder.decode([CategorizedEmojis].self, from: data)
+        return decodedData!
+    } else {
+        return nil
+    }
+}
+
+func saveData(of: [CategorizedEmojis]) {
+    let documentDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
+    let archiveURL = documentDirectory.appendingPathComponent("emojis").appendingPathExtension("json")
+    
+    let jsonEncoder = JSONEncoder()
+    let encodedEmojis = try? jsonEncoder.encode(of)
+    
+    try? encodedEmojis?.write(to: archiveURL, options: .noFileProtection)
+    
+    print("Data saved: \(archiveURL.absoluteString)")
 }

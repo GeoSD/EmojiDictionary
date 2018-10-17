@@ -15,13 +15,14 @@ class EmojiTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        categorizedEmojis = loadCategorizedEmojis()
-        tableView.reloadData()
+        if let loadedEmojis = loadData() {
+            categorizedEmojis = loadedEmojis
+        } else {
+                categorizedEmojis = loadCategorizedEmojis()
+        }
         
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
+        tableView.reloadData()
 
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          navigationItem.leftBarButtonItem = editButtonItem
     }
 
@@ -99,7 +100,7 @@ class EmojiTableViewController: UITableViewController {
             let navigationController = segue.destination as! UINavigationController
             
             let addEditEmojiTVC = navigationController.topViewController as! AddEditEmojiTableViewController
-            addEditEmojiTVC.navigationItem.title = "Edit emoji."
+            addEditEmojiTVC.navigationItem.title = "Edit Emoji"
             addEditEmojiTVC.addFlag = false
             addEditEmojiTVC.choosedEmoji = (section, row, emoji)
         }
@@ -120,6 +121,7 @@ class EmojiTableViewController: UITableViewController {
         } else {
             categorizedEmojis[section].emojis.append(emoji)
         }
+        saveData(of: categorizedEmojis)
         tableView.reloadData()
     }
     
